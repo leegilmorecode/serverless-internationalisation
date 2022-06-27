@@ -1,0 +1,42 @@
+{
+  "name": "sales",
+  "version": "0.1.0",
+  "bin": {
+    "sales": "bin/sales.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "bootstrap": "cdk bootstrap --profile default",
+    "build:global": "LOCALE=global cdk synth --profile default",
+    "build:uk": "LOCALE=UK cdk synth --profile default",
+    "build:us": "LOCALE=US cdk synth --profile default",
+    "deploy:global": "LOCALE=global cdk deploy --profile default --outputs-file ./cdk-outputs.json",
+    "deploy:uk": "LOCALE=UK cdk deploy --profile default --outputs-file ./cdk-outputs.json",
+    "deploy:us": "LOCALE=US cdk deploy --profile default --outputs-file ./cdk-outputs.json",
+    "remove:global": "LOCALE=global cdk destroy --profile default",
+    "remove:uk": "LOCALE=UK cdk destroy --profile default",
+    "remove:us": "LOCALE=US cdk destroy --profile default"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.101",
+    "@types/jest": "^27.5.2",
+    "@types/node": "10.17.27",
+    "@types/prettier": "2.6.0",
+    "@types/source-map-support": "^0.5.4",
+    "aws-cdk": "2.29.1",
+    "esbuild": "^0.14.47",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.8.1",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.29.1",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.21"
+  }
+}
