@@ -13,7 +13,7 @@ export const getSalesLambdaProps: nodeLambda.NodejsFunctionProps = {
     __dirname,
     dynamicPath("/../../src/global/get-sales/get-sales.ts")
   ),
-  memorySize: 512,
+  memorySize: 1024,
   handler: "handler",
   environment: {
     // this is used to determine which imports we use dynamically

@@ -7,7 +7,7 @@ import * as cdk from "aws-cdk-lib";
 import * as nodeLambda from "aws-cdk-lib/aws-lambda-nodejs";
 
 import { SalesStack } from "@lib/sales-stack";
-import { dynamicImport } from "@shared/dynamic-import";
+import { dynamicImport } from "@shared/dynamic-imports";
 
 (async () => {
   // dynamically pull in the locale specific props as overrides

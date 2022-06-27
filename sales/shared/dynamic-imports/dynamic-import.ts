@@ -6,7 +6,7 @@ function rootDir(): string {
 }
 
 // function to return the locale lowercase
-function getLocale(): string {
+export function getLocale(): string {
   if (!process.env.LOCALE) {
     throw new Error("Locale has not been set");
   }
