@@ -6,6 +6,7 @@ import { dynamicPath, getLocale } from "@shared/dynamic-imports";
 
 export const getSalesLambdaProps: nodeLambda.NodejsFunctionProps = {
   runtime: lambda.Runtime.NODEJS_14_X,
+  functionName: "getSalesLambdaProps",
   // the entry point utilises our dynamic path generator
   // which allows us to swap out the lambda source code based
   // on locale being built too

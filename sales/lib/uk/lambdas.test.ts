@@ -27,6 +27,7 @@ Object {
   "environment": Object {
     "LOCALE": "uk",
   },
+  "functionName": "getSalesLambdaProps",
   "handler": "handler",
   "memorySize": 1024,
   "runtime": Runtime {

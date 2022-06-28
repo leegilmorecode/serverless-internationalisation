@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sales-stack Global should generate the correct global api gateway 1`] = `
+Object {
+  "SalesAPI40AE10D2": Object {
+    "Properties": Object {
+      "Description": "Global version of the Sales API",
+      "Name": "sales-api",
+    },
+    "Type": "AWS::ApiGateway::RestApi",
+  },
+}
+`;
+
+exports[`sales-stack Global should generate the correct global lambdas 1`] = `
+Object {
+  "GetSalesD8890AF0": Object {
+    "DependsOn": Array [
+      "GetSalesServiceRole776C3A71",
+    ],
+    "Properties": Object {
+      "Code": Object {
+        "S3Bucket": Object {
+          "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+        },
+        "S3Key": "0e11a6c893f6fb4e262b2146d4ddef861a0d50933b9eadea21fdbc4f4f04dbf4.zip",
+      },
+      "Description": "Global version of the getSalesLambdaProps handler",
+      "Environment": Object {
+        "Variables": Object {
+          "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+          "LOCALE": "global",
+        },
+      },
+      "FunctionName": "getSalesLambdaProps",
+      "Handler": "index.handler",
+      "MemorySize": 512,
+      "Role": Object {
+        "Fn::GetAtt": Array [
+          "GetSalesServiceRole776C3A71",
+          "Arn",
+        ],
+      },
+      "Runtime": "nodejs14.x",
+    },
+    "Type": "AWS::Lambda::Function",
+  },
+}
+`;
+
+exports[`sales-stack UK should generate the correct UK api gateway 1`] = `
+Object {
+  "SalesAPI40AE10D2": Object {
+    "Properties": Object {
+      "Description": "UK version of the Sales API",
+      "Name": "sales-api",
+    },
+    "Type": "AWS::ApiGateway::RestApi",
+  },
+}
+`;
+
+exports[`sales-stack UK should generate the correct UK lambdas 1`] = `
+Object {
+  "GetSalesD8890AF0": Object {
+    "DependsOn": Array [
+      "GetSalesServiceRole776C3A71",
+    ],
+    "Properties": Object {
+      "Code": Object {
+        "S3Bucket": Object {
+          "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+        },
+        "S3Key": "0e11a6c893f6fb4e262b2146d4ddef861a0d50933b9eadea21fdbc4f4f04dbf4.zip",
+      },
+      "Description": "UK version of the getSalesLambdaProps handler",
+      "Environment": Object {
+        "Variables": Object {
+          "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+          "LOCALE": "uk",
+        },
+      },
+      "FunctionName": "getSalesLambdaProps",
+      "Handler": "index.handler",
+      "MemorySize": 1024,
+      "Role": Object {
+        "Fn::GetAtt": Array [
+          "GetSalesServiceRole776C3A71",
+          "Arn",
+        ],
+      },
+      "Runtime": "nodejs14.x",
+    },
+    "Type": "AWS::Lambda::Function",
+  },
+}
+`;

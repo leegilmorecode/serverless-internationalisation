@@ -8,6 +8,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest --no-cache",
+    "test:coverage": "jest --no-cache --coverage",
     "test:watch": "jest --watch --no-cache",
     "cdk": "cdk",
     "bootstrap": "cdk bootstrap --profile default",
