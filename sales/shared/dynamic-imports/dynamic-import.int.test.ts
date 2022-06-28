@@ -13,23 +13,23 @@ describe("dynamic-imports", () => {
   describe("dynamicPath", () => {
     it("should return the correct path when locale is global", () => {
       process.env.LOCALE = "global";
-      const path = "../tests/global/index.ts";
+      const path = "./tests/global/index.ts";
       const { dynamicPath } = require("./dynamic-import");
-      expect(dynamicPath(path)).toEqual("../tests/global/index.ts");
+      expect(dynamicPath(path)).toEqual("./tests/global/index.ts");
     });
 
     it("should return the correct path when locale is uk and file exists", () => {
       process.env.LOCALE = "UK";
-      const path = "../tests/global/index.ts";
+      const path = "./tests/global/index.ts";
       const { dynamicPath } = require("./dynamic-import");
-      expect(dynamicPath(path)).toEqual("../tests/uk/index.ts");
+      expect(dynamicPath(path)).toEqual("./tests/uk/index.ts");
     });
 
     it("should return the correct global fallback path if override is not there", () => {
       process.env.LOCALE = "UK";
-      const path = "../tests/global/index2.ts";
+      const path = "./tests/global/index2.ts";
       const { dynamicPath } = require("./dynamic-import");
-      expect(dynamicPath(path)).toEqual("../tests/global/index2.ts");
+      expect(dynamicPath(path)).toEqual("./tests/global/index2.ts");
     });
   });
 

@@ -8,6 +8,7 @@ import { Construct } from "constructs";
 interface SalesProps extends StackProps {
   apiProps: apigw.RestApiProps;
   getSalesLambdaProps: nodeLambda.NodejsFunctionProps;
+  createSaleLambdaProps: nodeLambda.NodejsFunctionProps;
 }
 
 export class SalesStack extends Stack {
@@ -20,6 +21,11 @@ export class SalesStack extends Stack {
         ...props?.getSalesLambdaProps,
       });
 
+    const createSaleHandler: nodeLambda.NodejsFunction =
+      new nodeLambda.NodejsFunction(this, "CreateSale", {
+        ...props?.createSaleLambdaProps,
+      });
+
     // api gateway resource
     const salesApi: apigw.RestApi = new apigw.RestApi(this, "SalesAPI", {
       ...props?.apiProps,
@@ -29,6 +35,14 @@ export class SalesStack extends Stack {
     sales.addMethod(
       "GET",
       new apigw.LambdaIntegration(getSalesHandler, {
+        proxy: true,
+        allowTestInvoke: true,
+      })
+    );
+
+    sales.addMethod(
+      "POST",
+      new apigw.LambdaIntegration(createSaleHandler, {
         proxy: true,
         allowTestInvoke: true,
       })

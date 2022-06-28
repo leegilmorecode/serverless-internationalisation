@@ -1,0 +1,130 @@
+{
+  "info": {
+    "_postman_id": "afd11750-f4c6-45fd-99ef-98d3ea6e95bf",
+    "name": "Serverless Internationalisation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "752706"
+  },
+  "item": [
+    {
+      "name": "[Global] Get Sales",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://restapi.execute-api.eu-west-1.amazonaws.com/prod/sales/",
+          "protocol": "https",
+          "host": ["restapi", "execute-api", "eu-west-1", "amazonaws", "com"],
+          "path": ["prod", "sales", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "[Global] Create Sale Works",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": 111,\n    \"firstName\": \"Lee\",\n    \"surname\": \"Gilmore\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://restapi.execute-api.eu-west-1.amazonaws.com/prod/sales/",
+          "protocol": "https",
+          "host": ["restapi", "execute-api", "eu-west-1", "amazonaws", "com"],
+          "path": ["prod", "sales", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "[Global] Create Sale Fails",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": 111,\n    \"firstName\": \"Lee\",\n    \"surname\": \"Gilmore\",\n    \"age\": 23\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://restapi.execute-api.eu-west-1.amazonaws.com/prod/sales/",
+          "protocol": "https",
+          "host": ["restapi", "execute-api", "eu-west-1", "amazonaws", "com"],
+          "path": ["prod", "sales", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "[UK] Get Sales",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://restapi.execute-api.eu-west-1.amazonaws.com/prod/sales/",
+          "protocol": "https",
+          "host": ["restapi", "execute-api", "eu-west-1", "amazonaws", "com"],
+          "path": ["prod", "sales", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "[UK] Create Sale Works",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": 111,\n    \"firstName\": \"Łeą\",\n    \"surname\": \"Gilmore\",\n    \"age\": 111\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://restapi.execute-api.eu-west-1.amazonaws.com/prod/sales/",
+          "protocol": "https",
+          "host": ["restapi", "execute-api", "eu-west-1", "amazonaws", "com"],
+          "path": ["prod", "sales", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "[UK] Create Sale Works Fails",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": 111,\n    \"firstName\": \"Łeą\",\n    \"surname\": \"Gilmore\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://restapi.execute-api.eu-west-1.amazonaws.com/prod/sales/",
+          "protocol": "https",
+          "host": ["restapi", "execute-api", "eu-west-1", "amazonaws", "com"],
+          "path": ["prod", "sales", ""]
+        }
+      },
+      "response": []
+    }
+  ]
+}

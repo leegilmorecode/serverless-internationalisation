@@ -15,8 +15,8 @@ describe("regexes", () => {
     const { regexes } = require("./regexes");
     expect(regexes).toMatchInlineSnapshot(`
 Object {
-  "firstName": "/^[a-z]+$/i",
-  "surname": "/^[a-z ,.'-]+$/i",
+  "firstName": "^[a-z A-Z]+$",
+  "surname": "^[a-z A-Z]+$",
 }
 `);
   });
@@ -26,8 +26,8 @@ Object {
     const { regexes } = require("./regexes");
     expect(regexes).toMatchInlineSnapshot(`
 Object {
-  "firstName": "/^[a-z ,.'-]+$/i",
-  "surname": "/^[a-z ,.'-]+$/i",
+  "firstName": "^[a-zŁą A-Z]+$",
+  "surname": "^[a-zŁą A-Z]+$",
 }
 `);
   });
@@ -37,8 +37,8 @@ Object {
     const { regexes } = require("./regexes");
     expect(regexes).toMatchInlineSnapshot(`
 Object {
-  "firstName": "/^[a-zŁą ,.'-]+$/i",
-  "surname": "/^[a-zŁą ,.'-]+$/i",
+  "firstName": "^[a-zŁą A-Z]+$",
+  "surname": "^[a-zŁą A-Z]+$",
 }
 `);
   });

@@ -16,13 +16,17 @@ import { dynamicImport } from "@shared/dynamic-imports";
   );
   const {
     getSalesLambdaProps,
-  }: { getSalesLambdaProps: nodeLambda.NodejsFunctionProps } =
-    await dynamicImport("@lib/global/lambdas");
+    createSaleLambdaProps,
+  }: {
+    getSalesLambdaProps: nodeLambda.NodejsFunctionProps;
+    createSaleLambdaProps: nodeLambda.NodejsFunctionProps;
+  } = await dynamicImport("@lib/global/lambdas");
 
   // create the new stack with the locale specific props passed in
-  const app = new cdk.App();
+  const app: cdk.App = new cdk.App();
   new SalesStack(app, "SalesStack", {
     apiProps,
     getSalesLambdaProps,
+    createSaleLambdaProps,
   });
 })();

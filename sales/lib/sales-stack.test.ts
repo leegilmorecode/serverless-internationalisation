@@ -17,18 +17,20 @@ describe("sales-stack", () => {
 
   describe("Global", () => {
     it("should generate the correct global lambdas", async () => {
+      expect.assertions(2);
+
       process.env.LOCALE = "global";
       const { dynamicImport } = require("@shared/dynamic-imports");
 
       const { apiProps } = await dynamicImport("@lib/global/api-gateway");
-      const { getSalesLambdaProps } = await dynamicImport(
-        "@lib/global/lambdas"
-      );
+      const { getSalesLambdaProps, createSaleLambdaProps } =
+        await dynamicImport("@lib/global/lambdas");
 
       const app = new cdk.App();
       const stack = new SalesStack(app, "GlobalTestStack", {
         apiProps,
         getSalesLambdaProps,
+        createSaleLambdaProps,
       });
 
       const template = Template.fromStack(stack);
@@ -36,10 +38,34 @@ describe("sales-stack", () => {
       expect(
         template.findResources("AWS::Lambda::Function", {
           Properties: {
-            FunctionName: "getSalesLambdaProps",
+            FunctionName: "getSalesLambda",
           },
         })
-      ).toMatchSnapshot();
+      ).toMatchSnapshot({
+        GetSalesD8890AF0: {
+          Properties: {
+            Code: {
+              S3Key: expect.any(String),
+            },
+          },
+        },
+      });
+
+      expect(
+        template.findResources("AWS::Lambda::Function", {
+          Properties: {
+            FunctionName: "createSaleLambda",
+          },
+        })
+      ).toMatchSnapshot({
+        CreateSale7BE4C0B2: {
+          Properties: {
+            Code: {
+              S3Key: expect.any(String),
+            },
+          },
+        },
+      });
     });
 
     it("should generate the correct global api gateway", async () => {
@@ -47,14 +73,14 @@ describe("sales-stack", () => {
       const { dynamicImport } = require("@shared/dynamic-imports");
 
       const { apiProps } = await dynamicImport("@lib/global/api-gateway");
-      const { getSalesLambdaProps } = await dynamicImport(
-        "@lib/global/lambdas"
-      );
+      const { getSalesLambdaProps, createSaleLambdaProps } =
+        await dynamicImport("@lib/global/lambdas");
 
       const app = new cdk.App();
       const stack = new SalesStack(app, "GlobalTestStack", {
         apiProps,
         getSalesLambdaProps,
+        createSaleLambdaProps,
       });
 
       const template = Template.fromStack(stack);
@@ -67,18 +93,20 @@ describe("sales-stack", () => {
 
   describe("UK", () => {
     it("should generate the correct UK lambdas", async () => {
+      expect.assertions(2);
+
       process.env.LOCALE = "UK";
       const { dynamicImport } = require("@shared/dynamic-imports");
 
       const { apiProps } = await dynamicImport("@lib/global/api-gateway");
-      const { getSalesLambdaProps } = await dynamicImport(
-        "@lib/global/lambdas"
-      );
+      const { getSalesLambdaProps, createSaleLambdaProps } =
+        await dynamicImport("@lib/global/lambdas");
 
       const app = new cdk.App();
       const stack = new SalesStack(app, "UKTestStack", {
         apiProps,
         getSalesLambdaProps,
+        createSaleLambdaProps,
       });
 
       const template = Template.fromStack(stack);
@@ -86,10 +114,34 @@ describe("sales-stack", () => {
       expect(
         template.findResources("AWS::Lambda::Function", {
           Properties: {
-            FunctionName: "getSalesLambdaProps",
+            FunctionName: "getSalesLambda",
           },
         })
-      ).toMatchSnapshot();
+      ).toMatchSnapshot({
+        GetSalesD8890AF0: {
+          Properties: {
+            Code: {
+              S3Key: expect.any(String),
+            },
+          },
+        },
+      });
+
+      expect(
+        template.findResources("AWS::Lambda::Function", {
+          Properties: {
+            FunctionName: "createSaleLambda",
+          },
+        })
+      ).toMatchSnapshot({
+        CreateSale7BE4C0B2: {
+          Properties: {
+            Code: {
+              S3Key: expect.any(String),
+            },
+          },
+        },
+      });
     });
 
     it("should generate the correct UK api gateway", async () => {
@@ -97,14 +149,14 @@ describe("sales-stack", () => {
       const { dynamicImport } = require("@shared/dynamic-imports");
 
       const { apiProps } = await dynamicImport("@lib/global/api-gateway");
-      const { getSalesLambdaProps } = await dynamicImport(
-        "@lib/global/lambdas"
-      );
+      const { getSalesLambdaProps, createSaleLambdaProps } =
+        await dynamicImport("@lib/global/lambdas");
 
       const app = new cdk.App();
       const stack = new SalesStack(app, "GlobalTestStack", {
         apiProps,
         getSalesLambdaProps,
+        createSaleLambdaProps,
       });
 
       const template = Template.fromStack(stack);

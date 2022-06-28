@@ -15,6 +15,7 @@ describe("error-messages", () => {
     const { errorMessages } = require("./error-messages");
     expect(errorMessages).toMatchInlineSnapshot(`
 Object {
+  "invalidBody": "{0} has no body",
   "itemNotFound": "{0} with ID {1} has not been found",
   "notFound": "{0} have not been found Globally",
 }
@@ -26,6 +27,7 @@ Object {
     const { errorMessages } = require("./error-messages");
     expect(errorMessages).toMatchInlineSnapshot(`
 Object {
+  "invalidBody": "The {0} has no body",
   "itemNotFound": "{0} with ID {1} has not been found",
   "notFound": "{0} have not been found in UK",
 }
@@ -37,6 +39,7 @@ Object {
     const { errorMessages } = require("./error-messages");
     expect(errorMessages).toMatchInlineSnapshot(`
 Object {
+  "invalidBody": "{0} with ID {1} has no body",
   "itemNotFound": "{0} with ID {1} has not been found",
   "notFound": "{0} have not been found in US",
 }

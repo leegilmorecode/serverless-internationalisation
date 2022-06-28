@@ -23,7 +23,7 @@ Object {
         "S3Bucket": Object {
           "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
         },
-        "S3Key": "0e11a6c893f6fb4e262b2146d4ddef861a0d50933b9eadea21fdbc4f4f04dbf4.zip",
+        "S3Key": Any<String>,
       },
       "Description": "Global version of the getSalesLambdaProps handler",
       "Environment": Object {
@@ -32,12 +32,48 @@ Object {
           "LOCALE": "global",
         },
       },
-      "FunctionName": "getSalesLambdaProps",
+      "FunctionName": "getSalesLambda",
       "Handler": "index.handler",
       "MemorySize": 512,
       "Role": Object {
         "Fn::GetAtt": Array [
           "GetSalesServiceRole776C3A71",
+          "Arn",
+        ],
+      },
+      "Runtime": "nodejs14.x",
+    },
+    "Type": "AWS::Lambda::Function",
+  },
+}
+`;
+
+exports[`sales-stack Global should generate the correct global lambdas 2`] = `
+Object {
+  "CreateSale7BE4C0B2": Object {
+    "DependsOn": Array [
+      "CreateSaleServiceRole2ACD756A",
+    ],
+    "Properties": Object {
+      "Code": Object {
+        "S3Bucket": Object {
+          "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+        },
+        "S3Key": Any<String>,
+      },
+      "Description": "Global version of the createSaleLambdaProps handler",
+      "Environment": Object {
+        "Variables": Object {
+          "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+          "LOCALE": "global",
+        },
+      },
+      "FunctionName": "createSaleLambda",
+      "Handler": "index.handler",
+      "MemorySize": 512,
+      "Role": Object {
+        "Fn::GetAtt": Array [
+          "CreateSaleServiceRole2ACD756A",
           "Arn",
         ],
       },
@@ -71,7 +107,7 @@ Object {
         "S3Bucket": Object {
           "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
         },
-        "S3Key": "0e11a6c893f6fb4e262b2146d4ddef861a0d50933b9eadea21fdbc4f4f04dbf4.zip",
+        "S3Key": Any<String>,
       },
       "Description": "UK version of the getSalesLambdaProps handler",
       "Environment": Object {
@@ -80,12 +116,48 @@ Object {
           "LOCALE": "uk",
         },
       },
-      "FunctionName": "getSalesLambdaProps",
+      "FunctionName": "getSalesLambda",
       "Handler": "index.handler",
       "MemorySize": 1024,
       "Role": Object {
         "Fn::GetAtt": Array [
           "GetSalesServiceRole776C3A71",
+          "Arn",
+        ],
+      },
+      "Runtime": "nodejs14.x",
+    },
+    "Type": "AWS::Lambda::Function",
+  },
+}
+`;
+
+exports[`sales-stack UK should generate the correct UK lambdas 2`] = `
+Object {
+  "CreateSale7BE4C0B2": Object {
+    "DependsOn": Array [
+      "CreateSaleServiceRole2ACD756A",
+    ],
+    "Properties": Object {
+      "Code": Object {
+        "S3Bucket": Object {
+          "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+        },
+        "S3Key": Any<String>,
+      },
+      "Description": "UK version of the createSaleLambdaProps handler",
+      "Environment": Object {
+        "Variables": Object {
+          "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+          "LOCALE": "uk",
+        },
+      },
+      "FunctionName": "createSaleLambda",
+      "Handler": "index.handler",
+      "MemorySize": 512,
+      "Role": Object {
+        "Fn::GetAtt": Array [
+          "CreateSaleServiceRole2ACD756A",
           "Arn",
         ],
       },

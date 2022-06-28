@@ -6,16 +6,16 @@ import { getLocale } from "../dynamic-imports";
 
 const localeRegexes: Regexes = {
   global: {
-    firstName: "/^[a-z]+$/i",
-    surname: "/^[a-z ,.'-]+$/i",
+    firstName: "^[a-z A-Z]+$",
+    surname: "^[a-z A-Z]+$",
   },
   uk: {
-    firstName: "/^[a-z ,.'-]+$/i",
-    surname: "/^[a-z ,.'-]+$/i",
+    firstName: "^[a-zŁą A-Z]+$", // different regexes for the UK
+    surname: "^[a-zŁą A-Z]+$",
   },
   us: {
-    firstName: "/^[a-zŁą ,.'-]+$/i",
-    surname: "/^[a-zŁą ,.'-]+$/i",
+    firstName: "^[a-zŁą A-Z]+$",
+    surname: "^[a-zŁą A-Z]+$",
   },
 };
 

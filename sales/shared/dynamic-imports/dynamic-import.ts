@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 function rootDir(): string {
-  return `${__dirname}/sales/`;
+  return __dirname;
 }
 
 // function to return the locale lowercase
@@ -55,7 +55,7 @@ export async function dynamicImport(importPath: string) {
     // check if there is a non global file i.e. overide version for a specific locale
     if (locale !== "global") {
       try {
-        // try and return a locale specific version of it exists
+        // try and return a locale specific version if it exists
         return await import(updatedPath);
       } catch (error) {
         // return the global version as it may not have been overriden
@@ -63,9 +63,10 @@ export async function dynamicImport(importPath: string) {
       }
     }
 
-    // return the global version as it may not have been overriden
+    // return the global version as it has not been overriden
     return await import(returnGlobalPath(importPath, locale));
   } catch (error) {
+    // the global file doesn't exist either
     console.error(error);
     throw error;
   }
