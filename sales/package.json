@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "jest --no-cache",
+    "test:watch": "jest --watch --no-cache",
     "cdk": "cdk",
     "bootstrap": "cdk bootstrap --profile default",
     "build:global": "LOCALE=global cdk synth --profile default",

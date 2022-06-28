@@ -15,6 +15,7 @@ export const getSalesLambdaProps: nodeLambda.NodejsFunctionProps = {
   ),
   memorySize: 512,
   handler: "handler",
+  description: "Global version of the getSalesLambdaProps handler",
   environment: {
     // this is used to determine which imports we use dynamically
     LOCALE: getLocale(),
