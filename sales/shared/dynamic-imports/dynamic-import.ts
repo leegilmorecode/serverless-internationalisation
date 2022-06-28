@@ -33,6 +33,7 @@ export function dynamicPath(importPath: string): string {
   if (locale !== "global") {
     const nonGlobalPath = replaceGlobalPath(importPath, locale);
 
+    console.log(path.join(rootDir(), nonGlobalPath));
     // if the non global file exists then return it
     if (fs.existsSync(path.join(rootDir(), nonGlobalPath))) {
       return nonGlobalPath;
@@ -62,6 +63,7 @@ export async function dynamicImport(importPath: string) {
         return await import(returnGlobalPath(importPath, locale));
       }
     }
+
     // return the global version as it may not have been overriden
     return await import(returnGlobalPath(importPath, locale));
   } catch (error) {
